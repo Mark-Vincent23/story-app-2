@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Offline - Story App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background-color: #1A73E8;
+            color: white;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .offline-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+            color: #FF9800;
+        }
+        
+        h1 {
+            margin: 0 0 16px 0;
+            font-size: 28px;
+        }
+        
+        p {
+            margin: 0 0 24px 0;
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+        }
+        
+        .button {
+            background-color: #1A73E8;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            margin: 8px;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .button i {
+            margin-right: 8px;
+        }
+        
+        .button:hover {
+            background-color: #1557b0;
+        }
+        
+        .button.secondary {
+            background-color: #757575;
+        }
+        
+        .button.secondary:hover {
+            background-color: #616161;
+        }
+        
+        .footer {
+            padding: 16px;
+            text-align: center;
+            background-color: #f0f0f0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+            max-width: 900px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 24px;
+            width: 250px;
+            text-align: left;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 8px;
+            color: #1A73E8;
+        }
+        
+        .card p {
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        
+        .offline-status {
+            margin-top: 24px;
+            padding: 12px;
+            background-color: #FFF3E0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .offline-status i {
+            color: #FF9800;
+            margin-right: 8px;
+        }
+        
+        #connection-status {
+            font-weight: bold;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        #reload-button {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Story App</h1>
+    </div>
+    
+    <div class="main">
+        <div class="offline-icon">
+            <i class="fas fa-wifi-slash"></i>
+        </div>
+        <h1>You're Offline</h1>
+        <p>It seems you're not connected to the internet right now. Don't worry, you can still access your favorite stories and other content that has been saved for offline use.</p>
+        
+        <div class="offline-status">
+            <i class="fas fa-info-circle"></i>
+            <span>Connection status: <span id="connection-status">Offline</span></span>
+        </div>
+        
+        <div style="margin-top: 24px;">
+            <a href="/" class="button">
+                <i class="fas fa-home"></i>Go to Homepage
+            </a>
+            <a href="#/favorites" class="button">
+                <i class="fas fa-heart"></i>View Favorites
+            </a>
+            <button id="reload-button" class="button secondary">
+                <i class="fas fa-sync-alt"></i>Reload Page
+            </button>
+        </div>
+        
+        <div class="card-container">
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-heart"></i>Favorites
+                </div>
+                <p>Access your favorite stories that have been saved for offline reading.</p>
+                <a href="#/favorites" class="button secondary">
+                    <i class="fas fa-heart"></i>Open Favorites
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-cog"></i>Settings
+                </div>
+                <p>Adjust your app settings even while offline.</p>
+                <a href="#/settings" class="button secondary">
+                    <i class="fas fa-cog"></i>Open Settings
+                </a>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-info-circle"></i>About
+                </div>
+                <p>Learn more about the Story App and its features.</p>
+                <a href="#/about" class="button secondary">
+                    <i class="fas fa-info-circle"></i>About App
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Story App - A Progressive Web App</p>
+        <p>Version 2.3.0</p>
+    </div>
+    
+    <script>
+        // Check if connection is restored
+        function updateOnlineStatus() {
+            const status = navigator.onLine;
+            const statusElement = document.getElementById('connection-status');
+            const reloadButton = document.getElementById('reload-button');
+            
+            if (status) {
+                statusElement.textContent = 'Online';
+                statusElement.style.color = '#4CAF50';
+                reloadButton.style.display = 'inline-flex';
+                
+                // Show a notification that we're back online
+                if (document.hidden) {
+                    // If the page is not visible, show a notification
+                    if ('Notification' in window && Notification.permission === 'granted') {
+                        new Notification('You\'re back online!', {
+                            body: 'You can now reload the Story App to access all features.',
+                            icon: '/images/logo-192x192.png'
+                        });
+                    }
+                }
+            } else {
+                statusElement.textContent = 'Offline';
+                statusElement.style.color = '#F44336';
+                reloadButton.style.display = 'none';
+            }
+        }
+        
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        
+        // Check connection status when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            updateOnlineStatus();
+            
+            // Add reload button functionality
+            document.getElementById('reload-button').addEventListener('click', () => {
+                window.location.reload();
+            });
+            
+            // Request notification permission
+            if ('Notification' in window && Notification.permission !== 'granted' && Notification.permission !== 'denied') {
+                Notification.requestPermission();
+            }
+        });
+        
+        // Attempt to load cached content
+        async function checkCachedContent() {
+            if ('caches' in window) {
+                try {
+                    // Check for cached pages
+                    const dynamicCache = await caches.open('story-app-dynamic-v2');
+                    const keys = await dynamicCache.keys();
+                    
+                    console.log('Cached content available:', keys.length > 0);
+                    
+                    // You can display cached content here if needed
+                } catch (error) {
+                    console.error('Error checking cached content:', error);
+                }
+            }
+        }
+        
+        checkCachedContent();
+    </script>
+</body>
+</html>

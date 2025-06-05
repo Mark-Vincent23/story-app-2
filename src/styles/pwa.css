@@ -1,0 +1,74 @@
+/* PWA Install Prompt */
+.pwa-install-prompt {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-width: 90%;
+  width: 400px;
+  animation: slide-up 0.3s ease-out;
+}
+
+.install-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.install-content p {
+  margin: 0 0 12px 0;
+  color: white;
+  font-weight: 500;
+}
+
+.install-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.install-button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.install-button:hover {
+  background-color: var(--accent-dark-color);
+}
+
+.dismiss-button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.dismiss-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes slide-up {
+  from {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
