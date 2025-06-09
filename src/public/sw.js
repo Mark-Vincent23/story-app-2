@@ -152,11 +152,6 @@ self.addEventListener('fetch', (event) => {
     return;
   }
   
-  // Skip cross-origin requests
-  if (requestUrl.origin !== location.origin) {
-    return;
-  }
-  
   // API requests - network first, then cache
   if (requestUrl.pathname.startsWith('/v1')) {
     event.respondWith(
