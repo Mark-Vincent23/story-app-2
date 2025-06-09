@@ -110,7 +110,17 @@ export default class DetailView {
       </div>
     `;
 
-    return PageTransition.slideTransition(this.container, storyDetailHTML);
+    // Render the HTML and wait for transition to finish
+    await PageTransition.slideTransition(this.container, storyDetailHTML);
+    // After DOM is updated, re-attach save local handler if present
+    if (this._saveLocalHandler) {
+      const saveButton = document.getElementById("save-local-button");
+      if (saveButton) {
+        saveButton.addEventListener("click", () => {
+          this._saveLocalHandler();
+        });
+      }
+    }
   }
   async afterRender() {
     // Get story ID from URL
