@@ -1,2 +1,2 @@
-APP_URL= https://venerable-salamander-6b400a.netlify.app/#/
+APP_URL= https://harmonious-bonbon-da1fb1.netlify.app/#/
 MAP_SERVICE_API_KEY=<api_key>

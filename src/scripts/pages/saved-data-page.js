@@ -20,6 +20,9 @@ const SavedDataPage = {
     container.innerHTML = stories.map(story => `
       <div class="story-item" data-id="${story.id}">
         <span>${story.description || 'Tanpa Judul'}</span>
+        <span>${story.name}</span>
+        <span>${story.lat}</span>
+        <span>${story.lon}</span>
         <button class="delete-btn" data-id="${story.id}">Hapus</button>
       </div>
     `).join('');
