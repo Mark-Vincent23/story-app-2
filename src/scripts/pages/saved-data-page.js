@@ -28,7 +28,7 @@ const SavedDataPage = {
     `).join('');
     container.querySelectorAll('.delete-btn').forEach(btn => {
       btn.addEventListener('click', async (e) => {
-        const id = Number(e.target.dataset.id);
+        const id = e.target.dataset.id; // FIX: use string id, not Number()
         await deleteStory(id);
         this.afterRender();
       });
